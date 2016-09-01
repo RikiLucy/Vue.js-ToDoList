@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> ToDoList</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    </head>
+<body>
+
+<style>
+    .demo-card-wide.mdl-card {
+        width: 512px;
+        margin: auto;
+    }
+    .demo-card-wide > .mdl-card__title {
+        color: #A7B9B8;
+        height: 70px;
+
+    }
+    .mdl-button{
+        margin:0 0 0 auto;
+
+    }
+    .mdl-button--fab.mdl-button--mini-fab{
+        height: 40px;
+        width: 40px;
+    }
+
+</style>
+
+    <div id="todos" class="container">
+
+        <br>
+
+        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">To Do List</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                <ul class="list-group">
+                    <li class="mdl-list__item" v-for="task in tasks">
+            <span class="mdl-list__item-primary-content">
+
+                {{task.title}}
+
+                <button v-on:click="removeTask($index)" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
+                <i class="material-icons">delete</i>
+                </button>
+
+            </span>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <form v-on:submit.prevent="addTask">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input v-model="newTask" class="mdl-textfield__input" type="text" id="sample3">
+                        <label class="mdl-textfield__label" for="sample3">Новая задача</label>
+                    </div>
+                </form>
+            </div>
+            <pre></pre>
+
+
+        </div>
+    </div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+<script src="todo.js"></script>
+</body>
+</html>
+
